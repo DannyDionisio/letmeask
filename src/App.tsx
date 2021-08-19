@@ -1,5 +1,7 @@
+import { useContext } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { AuthContextProvider } from "./contexts/AuthContext";
+import { ThemeContext } from "./contexts/ThemeContext";
 import { AdminRoom } from "./pages/AdminRoom";
 
 import { Home } from "./pages/Home";
@@ -7,17 +9,21 @@ import { NewRoom } from "./pages/NewRoom";
 import { Room } from "./pages/Room";
 
 function App() {
+  const { theme } = useContext(ThemeContext);
+
   return (
-    <BrowserRouter>
-      <AuthContextProvider>
-        <Switch>
-          <Route path="/" exact component={Home} />
-          <Route path="/rooms/new" component={NewRoom} />
-          <Route path="/rooms/:id" component={Room} />
-          <Route path="/admin/rooms/:id" component={AdminRoom} />
-        </Switch>
-      </AuthContextProvider>
-    </BrowserRouter>
+    <div className={theme}>
+      <BrowserRouter>
+        <AuthContextProvider>
+          <Switch>
+            <Route path="/" exact component={Home} />
+            <Route path="/rooms/new" component={NewRoom} />
+            <Route path="/rooms/:id" component={Room} />
+            <Route path="/admin/rooms/:id" component={AdminRoom} />
+          </Switch>
+        </AuthContextProvider>
+      </BrowserRouter>
+    </div>
   );
 }
 

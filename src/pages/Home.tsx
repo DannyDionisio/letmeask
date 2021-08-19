@@ -1,22 +1,26 @@
 import { useHistory } from "react-router-dom";
-import { FormEvent, useState } from "react";
+import { FormEvent, useContext, useState } from "react";
 
 import illustrationImg from "../assets/images/illustration.svg";
 import logoImg from "../assets/images/logo.svg";
 import googleIconImg from "../assets/images/google-icon.svg";
+import Switch from "react-switch";
 
 import "../styles/auth.scss";
 
 import { Button } from "../components/Button";
 import { useAuth } from "../hooks/useAuth";
 import { database } from "../services/firebase";
+import { ThemeContext } from "../contexts/ThemeContext";
 
 export function Home() {
+  const { theme, setTheme } = useContext(ThemeContext);
   const history = useHistory();
 
   const { user, signInWithGoogle } = useAuth();
 
   const [roomCode, setRoomCode] = useState("");
+  const isDarkTheme = theme === "dark-theme";
 
   async function handleCreateRoom() {
     if (!user) {
@@ -55,6 +59,18 @@ export function Home() {
         <p>Aprenda e compartilhe conhecimento com outras pessoas</p>
       </aside>
       <main>
+        <label htmlFor="">
+          <span>Light/Dark Mode</span>
+          <Switch
+            onChange={() => setTheme(isDarkTheme ? "" : "dark-theme")}
+            checked={isDarkTheme}
+            checkedIcon={false}
+            uncheckedIcon={false}
+            onColor="#835afd"
+            offColor="#D9D9D9"
+          />
+        </label>
+
         <div className="main-content">
           <img src={logoImg} alt="Letmeask" />
           <button onClick={handleCreateRoom} className="create-room">

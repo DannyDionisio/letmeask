@@ -110,3 +110,43 @@
     }
   }
 }
+
+.dark-theme {
+  #page-room {
+    main {
+      h1 {
+        color: #dbdad9;
+      }
+
+      form {
+        textarea {
+          background: #dbdad9;
+          box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+        }
+
+        .form-footer {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-top: 16px;
+
+          .user-info {
+            span {
+              color: #dbdad9;
+            }
+          }
+
+          > span {
+            color: #737380;
+
+            button {
+              background: transparent;
+              color: #835afd;
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+    }
+  }
+}

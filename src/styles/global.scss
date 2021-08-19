@@ -5,7 +5,7 @@
 }
 
 body {
-  background: #f8f8f8;
+  background: #fff;
   color: #29292e;
 }
 
@@ -14,4 +14,10 @@ input,
 button,
 textarea {
   font: 400 16px "Roboto, sans-serif";
+}
+
+.dark-theme {
+  background: #000;
+  color: #fff;
+  height: 100vh;
 }

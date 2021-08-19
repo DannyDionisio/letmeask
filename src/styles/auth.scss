@@ -41,6 +41,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+
+    label {
+      align-self: flex-end;
+      position: relative;
+      bottom: 210px;
+    }
   }
 
   .main-content {

@@ -34,3 +34,11 @@
     cursor: not-allowed;
   }
 }
+
+.dark-theme {
+  .button {
+    &.outlined {
+      background: #dbdad9;
+    }
+  }
+}
